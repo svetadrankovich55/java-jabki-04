@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MainTest {
 
+    private static final double DELTA = 0.0001;
+
     @Test
     void hello() {
         String name = "Котик";
@@ -24,7 +26,6 @@ class MainTest {
         assertEquals(0, Main.sumRange(-3, 3));
         assertThrows(IllegalArgumentException.class, () -> Main.sumRange(5, 1));
         assertThrows(IllegalArgumentException.class, () -> Main.sumRange(0, -1));
-
         Exception exception = assertThrows(IllegalArgumentException.class,
                 () -> Main.sumRange(0, -1));
         assertEquals("Параметр A должен быть меньше параметра B", exception.getMessage());
@@ -36,12 +37,10 @@ class MainTest {
         assertEquals(-5, Main.add(-2, -3));
         assertEquals(0, Main.add(-1, 1));
         assertEquals(-10, Main.add(5, -15));
-
     }
 
     @Test
     void testAdd() {
-
         assertEquals("Привет мир!", Main.add("Привет", "мир!"));
         assertEquals("Hello World", Main.add("Hello", "World"));
         assertEquals("   ", Main.add(" ", " "));
@@ -55,11 +54,9 @@ class MainTest {
         assertEquals(100, Main.findMax(new int[]{100}));
         assertThrows(IllegalArgumentException.class, () -> Main.findMax(new int[]{}));
         assertThrows(IllegalArgumentException.class, () -> Main.findMax(null));
-
         Exception exception = assertThrows(IllegalArgumentException.class,
                 () -> Main.findMax(new int[]{}));
         assertEquals("Массив не может быть пустым", exception.getMessage());
-
     }
 
     @Test
@@ -69,14 +66,10 @@ class MainTest {
         assertEquals(120, Main.factorialByFor(5));
         assertThrows(IllegalArgumentException.class, () -> Main.factorialByFor(-1));
         assertThrows(IllegalArgumentException.class, () -> Main.factorialByFor(-10));
-
         Exception exception = assertThrows(IllegalArgumentException.class,
                 () -> Main.factorialByFor(-2));
         assertEquals("Факториал определен только для n >= 0", exception.getMessage());
-
     }
-
-    private static final double DELTA = 0.0001;
 
     @Test
     void calculateArea() {
@@ -85,11 +78,9 @@ class MainTest {
         assertEquals(0.0, Main.calculateArea(0.0), DELTA);
         assertEquals(7.069, Main.calculateArea(1.5), DELTA);
         assertThrows(IllegalArgumentException.class, () -> Main.calculateArea(-1.0));
-
         Exception exception = assertThrows(IllegalArgumentException.class,
                 () -> Main.calculateArea(-2.0));
         assertEquals("Радиус не может быть отрицательным", exception.getMessage());
-
     }
 
     @Test
@@ -104,7 +95,6 @@ class MainTest {
         Exception exception = assertThrows(IllegalArgumentException.class,
                 () -> Main.calculateArea(-2, 3));
         assertEquals("Длина или ширина не могут быть отрицательными", exception.getMessage());
-        
     }
 
     @Test
@@ -123,12 +113,8 @@ class MainTest {
         assertEquals(0.0, Main.hypotenuseLength(0, 0), DELTA);
         assertThrows(IllegalArgumentException.class, () -> Main.hypotenuseLength(-1, 5));
         assertThrows(IllegalArgumentException.class, () -> Main.hypotenuseLength(5, -1));
-
         Exception exception = assertThrows(IllegalArgumentException.class,
                 () -> Main.hypotenuseLength(-2, 3));
         assertEquals("Катеты треугольника не могут быть отрицательными", exception.getMessage());
-
-
-
     }
 }

@@ -27,7 +27,7 @@ public class Main {
         double average = averageCalculator(5, 10, 15);
         System.out.println("Среднее арифметическое: " + average);
 
-        double hypotenuseLength = hypotenuseLength(7,5);
+        double hypotenuseLength = hypotenuseLength(7, 5);
         System.out.println("Длина гипотенузы: " + hypotenuseLength);
 
     }
@@ -75,14 +75,12 @@ public class Main {
     }
 
     public static int sumRange(int a, int b) {
-        int sumRange = 0;
-        if (a < b) {
-            for (int i = a; i <= b; i++) {
-                sumRange += i;
-            }
-
-        } else {
+        if (a >= b) {
             throw new IllegalArgumentException("Параметр A должен быть меньше параметра B");
+        }
+        int sumRange = 0;
+        for (int i = a; i <= b; i++) {
+            sumRange += i;
         }
         return sumRange;
     }
@@ -109,10 +107,10 @@ public class Main {
     }
 
     public static int factorialByFor(int n) {
-        int factorial = 1;
         if (n < 0) {
             throw new IllegalArgumentException("Факториал определен только для n >= 0");
         }
+        int factorial = 1;
         for (int i = 1; i <= n; i++) {
             factorial *= i;
         }
@@ -121,10 +119,10 @@ public class Main {
 
 
     public static double calculateArea(double radius) {
-        double pi = Math.PI;
         if (radius < 0) {
             throw new IllegalArgumentException("Радиус не может быть отрицательным");
         }
+        double pi = Math.PI;
         return Math.round((pi * radius * radius) * 1000) / 1000.0;
     }
 
@@ -140,11 +138,9 @@ public class Main {
     }
 
     public static double hypotenuseLength(int a, int b) {
-        double hypotenuseLength = 0;
         if (a < 0 || b < 0) {
             throw new IllegalArgumentException("Катеты треугольника не могут быть отрицательными");
         }
-        hypotenuseLength =  Math.round(Math.sqrt(a*a + b*b) * 1000) / 1000.0;
-        return hypotenuseLength;
+        return Math.round(Math.sqrt(a * a + b * b) * 1000) / 1000.0;
     }
 }
